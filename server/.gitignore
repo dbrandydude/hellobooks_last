@@ -43,3 +43,4 @@ yarn.lock
 .yarnrc
 yarn-error.log
 .jshintrc
+/bak

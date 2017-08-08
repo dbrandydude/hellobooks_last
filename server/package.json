@@ -1,16 +1,24 @@
 {
   "name": "server",
-  "version": "0.0.2",
-  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon app"
+    "test": "mocha",
+    "start": "nodemon dist/app",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && mkdir dist && babel src -s -d dist",
+    "build:prod": "npm run build && node bin/prod"
   },
+  "keywords": [],
+  "author": "Harry Dbrandy",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "~1.17.1",
     "debug": "~2.6.3",
+    "dotenv": "^4.0.0",
     "express": "~4.15.2",
     "morgan": "~1.8.1",
-    "bcryptjs": "^2.4.3",
     "pg": "^7.1.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.4.2"
