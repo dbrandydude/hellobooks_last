@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>HelloBooks | Login</title>
+
+        <!-- Bootstrap -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom css -->
+        <link href="assets/css/style.css" rel="stylesheet">
+        <!-- Font-Awesome -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <!-- live reload -->
+        <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Hello Books</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </nav>
+
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1><i class="fa fa-book" aria-hidden="true"></i> Hello Books <small>Sign in</small></h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="col-md-4 col-md-offset-4" id="form">
+                    <div class="page-header">
+                        <h1>Sign In</h1>
+                    </div>
+                    <form class="form-signin" action="library.html">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                            <input class="form-control" type="text" placeholder="Email address">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                            <input class="form-control" type="password" placeholder="Password">
+                        </div>
+                        <button class="btn btn-lg btn-default btn-block main-color-bg" type="submit">Sign in</button>
+                    </form>
+                    <p><a href="password_reset.html">Forgot your password</a></p>
+                    <div class="well well-sm">
+                        <p>New to HelloBooks? <a href="signup.html">Create an account</a></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Copyright &copy; Hello-Books 2017</p>
+        </footer>
+
+        <!-- JavaScript plugins -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+    </body>
+</html>
