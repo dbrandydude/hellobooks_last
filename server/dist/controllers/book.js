@@ -27,6 +27,32 @@ var BooksController = {
         });
     },
 
+    /* Update book */
+    update: function update(req, res) {
+        var bookId = req.params.bookId;
+        var updateBook = {
+            isbn: req.body.isbn,
+            title: req.body.title,
+            author: req.body.author,
+            published: req.body.published,
+            description: req.body.description,
+            qty: req.body.qty
+        };
+
+        _models2.default.Book.findById(bookId).then(function (book) {
+            if (!book) {
+                res.status(404).send({
+                    status: 'Not found'
+                });
+            }
+            return book.update(updateBook).then(function () {
+                res.status(200).send({ status: 'success' });
+            }).catch(function (err) {
+                return res.status(400).send(err);
+            });
+        });
+    },
+
     /* Retrieve all books */
     retrieveAll: function retrieveAll(req, res) {
         _models2.default.Book.all().then(function (books) {

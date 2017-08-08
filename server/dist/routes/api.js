@@ -19,6 +19,9 @@ var router = _express2.default.Router();
 /* POST add book */
 router.post('/books', _book2.default.add);
 
+/* PUT modify book */
+router.put('/books/:bookId', _book2.default.update);
+
 /* GET retrieve all books */
 router.get('/books', _book2.default.retrieveAll);
 

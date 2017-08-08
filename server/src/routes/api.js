@@ -7,6 +7,9 @@ const router = express.Router();
 /* POST add book */
 router.post('/books', BooksController.add);
 
+/* PUT modify book */
+router.put('/books/:bookId', BooksController.update);
+
 /* GET retrieve all books */
 router.get('/books', BooksController.retrieveAll);
 
