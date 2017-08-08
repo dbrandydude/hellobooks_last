@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>HelloBooks | Profile</title>
+
+        <!-- Bootstrap -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom css -->
+        <link href="assets/css/style.css" rel="stylesheet">
+        <!-- Font-Awesome -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <!-- live reload -->
+        <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+        <style>
+            .btn-block {
+                margin: 5px 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Hello Books</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="profile.html"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+                        </li>
+                        <li><a href="library.html"><i class="fa fa-book" aria-hidden="true"></i> Library</a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Welcome, John!</a></li>
+                        <li id="logout"><form action="index.html">
+                            <button class="btn btn-default btn-sm"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> Logout</button>
+                        </form></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </nav>
+
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h1><i class="fa fa-book" aria-hidden="true"></i> Hello Books <small>Profile</small></h1>
+                    </div>
+
+                    <div class="col-md-2 search pull-right">
+                        <button class="btn btn-default" onclick="contribute()">Contribute Book</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3" id="navigation">
+                        <div class="list-group">
+                            <button class="list-group-item main-color-bg"><i class="fa fa-bars" aria-hidden="true"></i> Navigation</button>
+                            <a href="profile.html" class="list-group-item"><i class="fa fa-user" aria-hidden="true"></i> My Profile</a>
+                            <a href="history.html" class="list-group-item"><i class="fa fa-history" aria-hidden="true"></i> Borrow History</a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="panel panel-default">
+                            <div class="panel-heading main-color-bg">
+                                <h3 class="panel-title">User Profile</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-3" id="profile">
+                                        <img src="assets/img/user/noimage.png" height="203" width="200" alt="noimage.png" class="img-circle">
+                                        <button type="file" class="btn btn-primary btn-block">Upload Avatar</button>
+                                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">Change Password</button>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="row">
+                                            <div class="container">
+                                                <h4>JOHN DOE</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <table class="table table-bordered table-responsive">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Username</td>
+                                                            <td>johnny</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Email</td>
+                                                            <td>johndoe@email.com</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Gender</td>
+                                                            <td>Male</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Location</td>
+                                                            <td>Boston</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <table class="table table-bordered table-responsive">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Role</td>
+                                                            <td>User</i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Membership</td>
+                                                            <td>Silver <i class="fa fa-star fa-lg" aria-hidden="true" id="silver"></i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Points</td>
+                                                            <td>120</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Total Borrowed</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Total Returned</td>
+                                                            <td>7</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Borrowed Books</h3>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table table-hover" id="history">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Title</th>
+                                            <th>Borrow Date</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Shadow and Dog</td>
+                                            <td>Dec 12, 2016</td>
+                                            <td>
+                                                <a href="pdf/sample.pdf" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="bottom" title="Read book"><i class="fa fa-rss fa-fw" aria-hidden="true"></i> Read</a>
+                                                <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Return book"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i> Return</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Shadow and Dog</td>
+                                            <td>Dec 12, 2016</td>
+                                            <td>
+                                                <a href="pdf/sample.pdf" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="bottom" title="Read book"><i class="fa fa-rss fa-fw" aria-hidden="true"></i> Read</a>
+                                                <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Return book"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i> Return</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Shadow and Dog</td>
+                                            <td>Dec 12, 2016</td>
+                                            <td>
+                                                <a href="pdf/sample.pdf" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="bottom" title="Read book"><i class="fa fa-rss fa-fw" aria-hidden="true"></i> Read</a>
+                                                <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Return book"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i> Return</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Shadow and Dog</td>
+                                            <td>Dec 12, 2016</td>
+                                            <td>
+                                                <a href="pdf/sample.pdf" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="bottom" title="Read book"><i class="fa fa-rss fa-fw" aria-hidden="true"></i> Read</a>
+                                                <button class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Return book"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i> Return</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Copyright &copy; Hello-Books 2017</p>
+        </footer>
+
+        <!-- My Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">Update Password</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="current_password" class="form-control-label">Current Password</label>
+                                <input type="password" class="form-control" id="current_password" placeholder="Current password">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="form-control-label">New Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Enter new password">
+                            </div>
+                            <div class="form-group">
+                                <label for="password2" class="form-control-label">Confirm New Password</label>
+                                <input type="password" class="form-control" id="password2" placeholder="Re-type password">
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Modal -->
+        <div class="modal fade" id="contributeBook" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">Contribute book</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="isbn">ISBN</label>
+                                    <input type="number" class="form-control" id="isbn">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="title">Title</label>
+                                    <input type="text" class="form-control" id="title" placeholder="Book Title">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="publisher">Publisher</label>
+                                    <input type="text" class="form-control" id="publisher" placeholder="Enter publisher">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="publish_date">Publish Date</label>
+                                    <input type="date" class="form-control" id="publish_date">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="edition">Edition</label>
+                                    <input type="number" class="form-control" id="edition" placeholder="Book Edition">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="edition">Category</label>
+                                    <select name="category" id="category" class="form-control" required="required">
+                                        <option value="">- Choose Category -</option>
+                                        <option value="tech">Tech</option>
+                                        <option value="it">IT</option>
+                                        <option value="programming">Programming</option>
+                                        <option value="story">Story</option>
+                                        <option value="learning">Leaarning</option>
+                                        <option value="motivational">Motivational</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea class="form-control" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript plugins -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script>
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
+
+            function contribute() {
+                $('#contributeBook').modal('show');
+            }
+        </script>
+    </body>
+</html>

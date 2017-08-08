@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>HelloBooks | Shadow and Dog</title>
+
+        <!-- Bootstrap -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom css -->
+        <link href="assets/css/style.css" rel="stylesheet">
+        <!-- Font-Awesome -->
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <!-- live reload -->
+        <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Hello Books</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="profile.html"><a href="profile.html"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+                        </li>
+                        <li><a href="library.html"><i class="fa fa-book" aria-hidden="true"></i> Library</a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Welcome, John!</a></li>
+                        <li id="logout"><form action="index.html">
+                            <button class="btn btn-default btn-sm"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> Logout</button>
+                        </form></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </nav>
+
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1><i class="fa fa-book" aria-hidden="true"></i> Hello Books <small>Library of ebooks</small></h1>
+                    </div>
+                    <div class="col-md-5 search">
+                        <form class="form-inline pull-right">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search...">
+                            </div>
+                            <select class="form-control" required="required">
+                                <option value="">Title</option>
+                                <option value="">Author</option>
+                                <option value="">Publisher</option>
+                                <option value="">ISBN</option>
+                                <option value="">Publish Year</option>
+                            </select>
+                            <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="container">
+                <!-- Breadcrumb -->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="library.html">Library</a></li>
+                    <li class="breadcrumb-item active">Shadow and Dog</li>
+                </ol>
+                <div class="page-header">
+                    <h1>Shadow and Dog</h1>
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="assets/img/cover_image/shadowsfog.jpg" height="" width="" alt="shadows_and_dog" class="img-thumbnail">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <div class="container">
+                                        <h4>BOOK DETAILS:</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Publisher</td>
+                                                    <td>John Doe</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Categories</td>
+                                                    <td>Tech, Programming</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Edition</td>
+                                                    <td>1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ISBN</td>
+                                                    <td>0470978295</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Pages</td>
+                                                    <td>500</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Published</td>
+                                                    <td>Apr 19, 2012</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Posted</td>
+                                                    <td>Aug 12, 2017</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Language</td>
+                                                    <td>English</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>BOOK DESCRIPTION:</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur deleniti delectus nam error doloribus reiciendis voluptates atque! Voluptatem delectus, architecto placeat necessitatibus eveniet autem tenetur inventore. Earum id doloremque eius explicabo, ducimus, laudantium nostrum esse reiciendis blanditiis veritatis minima animi est placeat, corrupti voluptate odit tempora aperiam repudiandae quos praesentium?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur deleniti delectus nam error doloribus reiciendis voluptates atque! Voluptatem delectus, architecto placeat necessitatibus eveniet autem tenetur inventore. Earum id doloremque eius explicabo, ducimus, laudantium nostrum esse reiciendis blanditiis veritatis minima animi est placeat, corrupti voluptate odit tempora aperiam repudiandae quos praesentium?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur deleniti delectus nam error doloribus reiciendis voluptates atque! Voluptatem delectus, architecto placeat necessitatibus eveniet autem tenetur inventore. Earum id doloremque eius explicabo, ducimus, laudantium nostrum esse reiciendis blanditiis veritatis minima animi est placeat, corrupti voluptate odit tempora aperiam repudiandae quos praesentium?
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            <strong>Quantity remaining:</strong> <i class="fa fa-random" aria-hidden="true"></i> <button class="btn btn-default" id="qty">3</button>
+                            <button id="borrowBtn" class="btn btn-primary" onclick="borrow()"><i class="fa fa-download" aria-hidden="true"></i> Borrow Book</button>
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Copyright &copy; Hello-Books 2017</p>
+        </footer>
+
+        <!-- JavaScript plugins -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script>
+            function borrow() {
+                let qty = $('#qty').text();
+                qty -= 1;
+                $('#qty').text(qty);
+
+                if (qty < 1) {
+                    $('#borrowBtn').attr('disabled', 'true');
+                    $('#borrowBtn').text('Not available');
+                }
+            }
+        </script>
+    </body>
+</html>
