@@ -12,21 +12,20 @@ var _index = require('./routes/index');
 
 var _index2 = _interopRequireDefault(_index);
 
+var _api = require('./routes/api');
+
+var _api2 = _interopRequireDefault(_api);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// var index = require('./routes/index');
-
+/* Routes */
 var app = (0, _express2.default)();
-
-// var express = require('express');
-// var logger = require('morgan');
-// var bodyParser = require('body-parser');
-
 
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
 
 app.use('/', _index2.default);
+app.use('/api', _api2.default);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
