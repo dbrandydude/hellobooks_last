@@ -18,8 +18,18 @@ const BooksController = {
 
     /* Retrieve all books */
     retrieveAll: (req, res) => {
-        db.Book.all()
+        db.Book
+            .all()
             .then((books) => { res.status(200).send(books); })
+            .catch((err) => { res.status(400).send(err); });
+    },
+
+    /* Retrieve single book */
+    retrieve: (req, res) => {
+        const bookId = parseInt(req.params.bookId, 10);
+        db.Book
+            .findById(bookId)
+            .then((book) => { res.status(200).send(book); })
             .catch((err) => { res.status(400).send(err); });
     }
 

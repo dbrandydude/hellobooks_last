@@ -22,5 +22,8 @@ router.post('/books', _book2.default.add);
 /* GET retrieve all books */
 router.get('/books', _book2.default.retrieveAll);
 
+/* GET retrieve single book */
+router.get('/books/:bookId', _book2.default.retrieve);
+
 exports.default = router;
 //# sourceMappingURL=api.js.map
