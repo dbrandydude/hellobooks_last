@@ -12,14 +12,16 @@ const BooksController = {
                 description: req.body.description,
                 qty: req.body.qty
             })
-            .then((book) => {
-                res.status(201).send(book);
-            })
-            .catch((err) => {
-                res.status(400).send(err);
-            });
-    }
+            .then((book) => { res.status(201).send(book); })
+            .catch((err) => { res.status(400).send(err); });
+    },
 
+    /* Retrieve all books */
+    retrieveAll: (req, res) => {
+        db.Book.all()
+            .then((books) => { res.status(200).send(books); })
+            .catch((err) => { res.status(400).send(err); });
+    }
 
 };
 

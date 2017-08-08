@@ -19,5 +19,8 @@ var router = _express2.default.Router();
 /* POST add book */
 router.post('/books', _book2.default.add);
 
+/* GET retrieve all books */
+router.get('/books', _book2.default.retrieveAll);
+
 exports.default = router;
 //# sourceMappingURL=api.js.map

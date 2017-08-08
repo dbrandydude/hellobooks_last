@@ -10,7 +10,7 @@ var _models2 = _interopRequireDefault(_models);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var BookController = {
+var BooksController = {
     /* Add Book */
     add: function add(req, res) {
         _models2.default.Book.create({
@@ -25,9 +25,18 @@ var BookController = {
         }).catch(function (err) {
             res.status(400).send(err);
         });
+    },
+
+    /* Retrieve all books */
+    retrieveAll: function retrieveAll(req, res) {
+        _models2.default.Book.all().then(function (books) {
+            res.status(200).send(books);
+        }).catch(function (err) {
+            res.status(400).send(err);
+        });
     }
 
 };
 
-exports.default = BookController;
+exports.default = BooksController;
 //# sourceMappingURL=book.js.map
