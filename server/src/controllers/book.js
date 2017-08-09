@@ -47,10 +47,9 @@ const BooksController = {
 
     /* Retrieve all books */
     retrieveAll: (req, res) => {
-        db.Book
-            .all()
-            .then((books) => { res.status(200).send(books); })
-            .catch((err) => { res.status(400).send(err); });
+        db.Book.all()
+            .then((users) => { res.send(users); })
+            .catch((err) => { res.send(err); });
     },
 
     /* Retrieve single book */

@@ -55,10 +55,10 @@ var BooksController = {
 
     /* Retrieve all books */
     retrieveAll: function retrieveAll(req, res) {
-        _models2.default.Book.all().then(function (books) {
-            res.status(200).send(books);
+        _models2.default.Book.all().then(function (users) {
+            res.send(users);
         }).catch(function (err) {
-            res.status(400).send(err);
+            res.send(err);
         });
     },
 

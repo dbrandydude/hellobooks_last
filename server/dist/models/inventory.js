@@ -17,15 +17,12 @@ var model = function model(sequelize, DataTypes) {
         },
         return: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
+            defaultValue: false
         }
     });
 
     // Class Method
     Inventory.associate = function (models) {
-        Inventory.hasOne(models.Book, {
-            foreignKey: 'borrowId'
-        });
         Inventory.belongsTo(models.User, {
             foreignKey: 'userId',
             onDelete: 'CASCADE'

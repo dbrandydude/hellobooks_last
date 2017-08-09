@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import passport from 'passport';
+import _s from 'serialijse';
 
 import db from '../models';
 
@@ -33,6 +34,28 @@ const UsersController = {
                 return res.status(200).send(user);
             });
         })(req, res, next);
+    },
+
+    /* Borrow book */
+    borrow: (req, res) => {
+        if (!req.user) return res.status(401).send('Unauthorized');
+        const userId = parseInt(req.params.userId, 10);
+        const bookId = req.body.bookId;
+
+        db.Book
+            .findById(bookId)
+            .then((book) => {
+                const bookData = _s.serialize(JSON.stringify(book));
+                db.Inventory
+                    .create({
+                        userId,
+                        book: bookData
+                    })
+                    .then((inventory) => {
+                        res.status(200).send(inventory);
+                    });
+            })
+            .catch(err => res.status(400).send(err));
     }
 };
 

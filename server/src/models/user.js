@@ -19,12 +19,10 @@ const model = (sequelize, DataTypes) => {
             allowNull: false
         },
         role: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.STRING
         },
         level: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.STRING
         }
     });
 

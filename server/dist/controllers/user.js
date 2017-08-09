@@ -12,6 +12,10 @@ var _passport = require('passport');
 
 var _passport2 = _interopRequireDefault(_passport);
 
+var _serialijse = require('serialijse');
+
+var _serialijse2 = _interopRequireDefault(_serialijse);
+
 var _models = require('../models');
 
 var _models2 = _interopRequireDefault(_models);
@@ -49,6 +53,25 @@ var UsersController = {
                 return res.status(200).send(user);
             });
         })(req, res, next);
+    },
+
+    /* Borrow book */
+    borrow: function borrow(req, res) {
+        if (!req.user) return res.status(401).send('Unauthorized');
+        var userId = parseInt(req.params.userId, 10);
+        var bookId = req.body.bookId;
+
+        _models2.default.Book.findById(bookId).then(function (book) {
+            var bookData = _serialijse2.default.serialize(JSON.stringify(book));
+            _models2.default.Inventory.create({
+                userId: userId,
+                book: bookData
+            }).then(function (inventory) {
+                res.status(200).send(inventory);
+            });
+        }).catch(function (err) {
+            return res.status(400).send(err);
+        });
     }
 };
 

@@ -26,6 +26,9 @@ router.post('/users/signup', _user2.default.signup);
 /* POST user signin */
 router.post('/users/signin', _user2.default.login);
 
+/* Borrow book */
+router.post('/users/:userId/books', _user2.default.borrow);
+
 /* POST add book */
 router.post('/books', _book2.default.add);
 

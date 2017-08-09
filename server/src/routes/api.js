@@ -11,6 +11,9 @@ router.post('/users/signup', UsersController.signup);
 /* POST user signin */
 router.post('/users/signin', UsersController.login);
 
+/* Borrow book */
+router.post('/users/:userId/books', UsersController.borrow);
+
 /* POST add book */
 router.post('/books', BooksController.add);
 

@@ -32,10 +32,7 @@ var model = function model(sequelize, DataTypes) {
 
     // Class Method
     Book.associate = function (models) {
-        Book.belongsTo(models.Inventory, {
-            foreignKey: 'borrowId',
-            onDelete: 'CASCADE'
-        });
+        // associate
     };
 
     return Book;
