@@ -72,6 +72,28 @@ var UsersController = {
         }).catch(function (err) {
             return res.status(400).send(err);
         });
+    },
+
+    /* Get books borrowed by user */
+    inventory: function inventory(req, res) {
+        if (!req.user) return res.status(401).send('Unauthorized');
+        if (req.query.returned) {
+            _models2.default.Inventory.findAll({
+                where: {
+                    userId: req.params.userId,
+                    return: req.query.returned
+                }
+            }).then(function (books) {
+                res.send(books);
+            }).catch(function (err) {
+                res.send(err);
+            });
+        }
+        return _models2.default.Inventory.findAll({ where: { userId: req.params.userId } }).then(function (books) {
+            res.send(books);
+        }).catch(function (err) {
+            res.send(err);
+        });
     }
 };
 

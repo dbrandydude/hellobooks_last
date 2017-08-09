@@ -56,7 +56,29 @@ const UsersController = {
                     });
             })
             .catch(err => res.status(400).send(err));
+    },
+
+    /* Get books borrowed by user */
+    inventory: (req, res) => {
+        if (!req.user) return res.status(401).send('Unauthorized');
+        if (req.query.returned) {
+            db.Inventory
+                .findAll({
+                    where: {
+                        userId: req.params.userId,
+                        return: req.query.returned
+                    }
+                })
+                .then((books) => { res.send(books); })
+                .catch((err) => { res.send(err); });
+        }
+        return db.Inventory
+            .findAll({ where: { userId: req.params.userId } })
+            .then((books) => { res.send(books); })
+            .catch((err) => { res.send(err); });
     }
+
+
 };
 
 export default UsersController;
