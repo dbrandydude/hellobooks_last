@@ -94,7 +94,23 @@ var UsersController = {
         }).catch(function (err) {
             res.send(err);
         });
+    },
+
+    /* Return borrowed books */
+    returnBook: function returnBook(req, res) {
+        var inventoryId = parseInt(req.body.inventoryId, 10);
+        _models2.default.Inventory.findById(inventoryId).then(function (book) {
+            if (!book) {
+                res.status(404).send({ status: 'Not found' });
+            }
+            book.update({ return: true }).then(function () {
+                res.status(200).send({ status: 'success' });
+            }).catch(function (err) {
+                return res.status(400).send(err);
+            });
+        });
     }
+
 };
 
 exports.default = UsersController;

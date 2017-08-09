@@ -76,8 +76,25 @@ const UsersController = {
             .findAll({ where: { userId: req.params.userId } })
             .then((books) => { res.send(books); })
             .catch((err) => { res.send(err); });
-    }
+    },
 
+    /* Return borrowed books */
+    returnBook: (req, res) => {
+        const inventoryId = parseInt(req.body.inventoryId, 10);
+        db.Inventory
+            .findById(inventoryId)
+            .then((book) => {
+                if (!book) {
+                    res.status(404).send({ status: 'Not found' });
+                }
+                book
+                    .update({ return: true })
+                    .then(() => {
+                        res.status(200).send({ status: 'success' });
+                    })
+                    .catch(err => res.status(400).send(err));
+            });
+    }
 
 };
 

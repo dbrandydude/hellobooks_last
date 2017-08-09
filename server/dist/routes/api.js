@@ -32,6 +32,9 @@ router.post('/users/:userId/books', _user2.default.borrow);
 /* GET user borrowed book */
 router.get('/users/:userId/books', _user2.default.inventory);
 
+/* PUT allow user to return book */
+router.put('/users/:userId/books', _user2.default.returnBook);
+
 /* POST add book */
 router.post('/books', _book2.default.add);
 

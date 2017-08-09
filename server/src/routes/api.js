@@ -17,6 +17,9 @@ router.post('/users/:userId/books', UsersController.borrow);
 /* GET user borrowed book */
 router.get('/users/:userId/books', UsersController.inventory);
 
+/* PUT allow user to return book */
+router.put('/users/:userId/books', UsersController.returnBook);
+
 /* POST add book */
 router.post('/books', BooksController.add);
 
