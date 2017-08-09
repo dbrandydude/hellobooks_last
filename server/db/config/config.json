@@ -2,24 +2,21 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "hellobooks",
+    "database": "hello",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false
   },
   "test": {
-    "username": "xzcfegfu",
-    "password": "OL7qD5_ynVCjxkkGyE9Lm8YERVFVUhyR",
+    "username": "root",
+    "password": null,
     "database": "hellobooks_test",
-    "host": "babar.elephantsql.com",
+    "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres"
   }
 }
