@@ -8,10 +8,10 @@
     "logging": false
   },
   "test": {
-    "username": "root",
-    "password": null,
+    "username": "xzcfegfu",
+    "password": "OL7qD5_ynVCjxkkGyE9Lm8YERVFVUhyR",
     "database": "hellobooks_test",
-    "host": "127.0.0.1",
+    "host": "babar.elephantsql.com",
     "dialect": "postgres",
     "logging": false
   },
