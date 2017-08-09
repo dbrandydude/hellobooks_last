@@ -57,7 +57,10 @@ const BooksController = {
         const bookId = parseInt(req.params.bookId, 10);
         db.Book
             .findById(bookId)
-            .then((book) => { res.status(200).send(book); })
+            .then((book) => {
+                if (!book) return res.status(404).send('Not found');
+                res.status(200).send(book);
+            })
             .catch((err) => { res.status(400).send(err); });
     }
 

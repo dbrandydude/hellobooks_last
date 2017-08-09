@@ -80,6 +80,7 @@ const UsersController = {
 
     /* Return borrowed books */
     returnBook: (req, res) => {
+        if (!req.user) return res.status(401).send('Unauthorized');
         const inventoryId = parseInt(req.body.inventoryId, 10);
         db.Inventory
             .findById(inventoryId)

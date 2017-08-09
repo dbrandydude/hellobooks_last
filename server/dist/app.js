@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
@@ -76,4 +80,6 @@ app.use(function (err, req, res) {
 app.listen(3000, function () {
     console.log('App listening on port 3000');
 });
+
+exports.default = app;
 //# sourceMappingURL=app.js.map

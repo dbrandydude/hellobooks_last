@@ -66,6 +66,7 @@ var BooksController = {
     retrieve: function retrieve(req, res) {
         var bookId = parseInt(req.params.bookId, 10);
         _models2.default.Book.findById(bookId).then(function (book) {
+            if (!book) return res.status(404).send('Not found');
             res.status(200).send(book);
         }).catch(function (err) {
             res.status(400).send(err);

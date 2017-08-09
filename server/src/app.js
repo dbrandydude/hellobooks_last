@@ -45,9 +45,10 @@ app.use((err, req, res) => {
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
 });
 
 app.listen(3000, () => {
     console.log('App listening on port 3000');
 });
+
+export default app;

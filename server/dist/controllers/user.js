@@ -98,6 +98,7 @@ var UsersController = {
 
     /* Return borrowed books */
     returnBook: function returnBook(req, res) {
+        if (!req.user) return res.status(401).send('Unauthorized');
         var inventoryId = parseInt(req.body.inventoryId, 10);
         _models2.default.Inventory.findById(inventoryId).then(function (book) {
             if (!book) {
