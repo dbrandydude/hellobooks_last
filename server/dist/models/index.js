@@ -16,9 +16,6 @@ var _sequelize = require('sequelize');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// const fs = require('fs');
-// const path = require('path');
-// const Sequelize = require('sequelize');
 var basename = _path2.default.basename(module.filename); /* eslint-disable */
 
 var env = process.env.NODE_ENV || 'development';

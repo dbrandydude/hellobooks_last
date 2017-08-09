@@ -8,6 +8,20 @@ var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
+var _expressSession = require('express-session');
+
+var _expressSession2 = _interopRequireDefault(_expressSession);
+
+var _passport = require('passport');
+
+var _passport2 = _interopRequireDefault(_passport);
+
+var _dotenv = require('dotenv');
+
+var _dotenv2 = _interopRequireDefault(_dotenv);
+
+require('./auth/passport');
+
 var _index = require('./routes/index');
 
 var _index2 = _interopRequireDefault(_index);
@@ -18,11 +32,25 @@ var _api2 = _interopRequireDefault(_api);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/* Config environment variable */
+
+
 /* Routes */
+_dotenv2.default.config();
+
 var app = (0, _express2.default)();
 
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
+app.use((0, _expressSession2.default)({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: true
+}));
+
+/* Initialize passport */
+app.use(_passport2.default.initialize());
+app.use(_passport2.default.session());
 
 app.use('/', _index2.default);
 app.use('/api', _api2.default);

@@ -23,6 +23,9 @@ var router = _express2.default.Router();
 /* POST user signup */
 router.post('/users/signup', _user2.default.signup);
 
+/* POST user signin */
+router.post('/users/signin', _user2.default.login);
+
 /* POST add book */
 router.post('/books', _book2.default.add);
 

@@ -8,6 +8,9 @@ const router = express.Router();
 /* POST user signup */
 router.post('/users/signup', UsersController.signup);
 
+/* POST user signin */
+router.post('/users/signin', UsersController.login);
+
 /* POST add book */
 router.post('/books', BooksController.add);
 
