@@ -3,30 +3,39 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-/* eslint-disable */
-// import fs from 'fs';
-// import path from 'path';
-// import Sequelize from 'sequelize';
 
-var fs = require('fs');
-var path = require('path');
-var Sequelize = require('sequelize');
-var basename = path.basename(module.filename);
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
+var _sequelize = require('sequelize');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// const fs = require('fs');
+// const path = require('path');
+// const Sequelize = require('sequelize');
+var basename = _path2.default.basename(module.filename); /* eslint-disable */
+
 var env = process.env.NODE_ENV || 'development';
 var config = require('../../src/db/config/config.json')[env];
 var db = {};
 
 var sequelize = void 0;
 if (config.use_env_variable) {
-    sequelize = new Sequelize(process.env[config.use_env_variable]);
+    sequelize = new _sequelize.Sequelize(process.env[config.use_env_variable]);
 } else {
-    sequelize = new Sequelize(config.database, config.username, config.password, config);
+    sequelize = new _sequelize.Sequelize(config.database, config.username, config.password, config);
 }
 
-fs.readdirSync(__dirname).filter(function (file) {
+_fs2.default.readdirSync(__dirname).filter(function (file) {
     return file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js';
 }).forEach(function (file) {
-    var model = sequelize['import'](path.join(__dirname, file));
+    var model = sequelize['import'](_path2.default.join(__dirname, file));
     db[model.name] = model;
 });
 
@@ -37,7 +46,7 @@ Object.keys(db).forEach(function (modelName) {
 });
 
 db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+db.Sequelize = _sequelize.Sequelize;
 
 exports.default = db;
 //# sourceMappingURL=index.js.map

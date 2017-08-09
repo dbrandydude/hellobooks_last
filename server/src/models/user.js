@@ -26,16 +26,12 @@ const model = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         }
-    }, {
-        classMethods: {
-            associate: (models) => {
-                User.hasMany(models.Inventory, {
-                    foreignKey: 'userId',
-                    as: 'books'
-                });
-            }
-        }
     });
+
+    // Class Method
+    User.associate = (models) => {
+        User.hasMany(models.Inventory, { foreignKey: 'userId' });
+    };
 
     return User;
 };

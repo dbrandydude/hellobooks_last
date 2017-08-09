@@ -1,11 +1,8 @@
 /* eslint-disable */
-// import fs from 'fs';
-// import path from 'path';
-// import Sequelize from 'sequelize';
+import fs from 'fs';
+import path from 'path';
+import { Sequelize } from 'sequelize';
 
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
 const basename = path.basename(module.filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require('../../src/db/config/config.json')[env];

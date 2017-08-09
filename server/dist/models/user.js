@@ -31,16 +31,12 @@ var model = function model(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         }
-    }, {
-        classMethods: {
-            associate: function associate(models) {
-                User.hasMany(models.Inventory, {
-                    foreignKey: 'userId',
-                    as: 'books'
-                });
-            }
-        }
     });
+
+    // Class Method
+    User.associate = function (models) {
+        User.hasMany(models.Inventory, { foreignKey: 'userId' });
+    };
 
     return User;
 };

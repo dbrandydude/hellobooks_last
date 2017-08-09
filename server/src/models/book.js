@@ -23,13 +23,16 @@ const model = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
         }
-    }, {
-        classMethods: {
-            associate(models) {
-                // associations can be defined here
-            }
-        }
     });
+
+    // Class Method
+    Book.associate = (models) => {
+        Book.belongsTo(models.Inventory, {
+            foreignKey: 'borrowId',
+            onDelete: 'CASCADE'
+        });
+    };
+
     return Book;
 };
 

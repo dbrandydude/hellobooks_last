@@ -28,7 +28,6 @@ const BooksController = {
             qty: req.body.qty
         };
 
-
         db.Book
             .findById(bookId)
             .then((book) => {

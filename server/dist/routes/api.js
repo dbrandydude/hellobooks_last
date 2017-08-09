@@ -12,9 +12,16 @@ var _book = require('../controllers/book');
 
 var _book2 = _interopRequireDefault(_book);
 
+var _user = require('../controllers/user');
+
+var _user2 = _interopRequireDefault(_user);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var router = _express2.default.Router();
+
+/* POST user signup */
+router.post('/users/signup', _user2.default.signup);
 
 /* POST add book */
 router.post('/books', _book2.default.add);

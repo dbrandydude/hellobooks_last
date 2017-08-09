@@ -28,13 +28,16 @@ var model = function model(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         }
-    }, {
-        classMethods: {
-            associate: function associate(models) {
-                // associations can be defined here
-            }
-        }
     });
+
+    // Class Method
+    Book.associate = function (models) {
+        Book.belongsTo(models.Inventory, {
+            foreignKey: 'borrowId',
+            onDelete: 'CASCADE'
+        });
+    };
+
     return Book;
 };
 

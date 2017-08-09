@@ -1,8 +1,12 @@
 import express from 'express';
 
 import BooksController from '../controllers/book';
+import UsersController from '../controllers/user';
 
 const router = express.Router();
+
+/* POST user signup */
+router.post('/users/signup', UsersController.signup);
 
 /* POST add book */
 router.post('/books', BooksController.add);
