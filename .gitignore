@@ -40,7 +40,6 @@ npm-debug.log
 /dist
 
 # custom
-yarn.lock
 .yarnrc
 yarn-error.log
 .jshintrc
