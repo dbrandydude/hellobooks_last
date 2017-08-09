@@ -37,6 +37,7 @@ npm-debug.log
 # build
 .babelrc
 /bin
+/dist
 
 # custom
 yarn.lock
