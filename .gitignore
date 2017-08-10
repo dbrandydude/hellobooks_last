@@ -36,7 +36,6 @@ npm-debug.log
 
 # build
 /bin
-/dist
 
 # custom
 .yarnrc
