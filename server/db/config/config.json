@@ -1,25 +1,17 @@
 {
-  // "development": {
-  //   "username": "root",
-  //   "password": null,
-  //   "database": "hellobooks",
-  //   "host": "127.0.0.1",
-  //   "dialect": "postgres",
-  //   "logging": false
-  // },
+    "development": {
+      "username": "xzcfegfu",
+      "password": "OL7qD5_ynVCjxkkGyE9Lm8YERVFVUhyR",
+      "database": "xzcfegfu",
+      "host": "babar.elephantsql.com",
+      "dialect": "postgres",
+      "logging": false
+    },
   "test": {
     "username": "root",
     "password": null,
     "database": "hellobooks_test",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "logging": false
-  },
-  "development": {
-    "username": "xzcfegfu",
-    "password": "OL7qD5_ynVCjxkkGyE9Lm8YERVFVUhyR",
-    "database": "xzcfegfu",
-    "host": "babar.elephantsql.com",
     "dialect": "postgres",
     "logging": false
   }
