@@ -5,3 +5,4 @@ services:
   - postgresql
 script:
   - npm test
+  - npm install
