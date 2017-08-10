@@ -42,6 +42,6 @@ npm-debug.log
 # custom
 .yarnrc
 yarn-error.log
-.yarn.lock
+yarn.lock
 .jshintrc
 /bak
