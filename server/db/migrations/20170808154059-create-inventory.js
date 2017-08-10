@@ -1,4 +1,4 @@
-/* eslint no-unused-vars: ["error", { "args": "none" }] */
+/* eslint-disable */
 
 module.exports = {
     up: (queryInterface, Sequelize) => {
