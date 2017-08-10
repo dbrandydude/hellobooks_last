@@ -1,4 +1,6 @@
 import express from 'express';
+// import path from 'path';
+// import favicon from 'serve-favicon';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';

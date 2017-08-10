@@ -31,7 +31,8 @@
     "pg": "^7.1.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.4.2",
-    "serialijse": "^0.1.1"
+    "serialijse": "^0.1.1",
+    "serve-favicon": "^2.4.3"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
