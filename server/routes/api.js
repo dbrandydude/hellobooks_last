@@ -11,11 +11,11 @@ router.get('/users/logout', isLoggedIn, UsersController.logout);
 /* Borrow book */
 router.post('/users/:userId/books', isLoggedIn, BooksController.borrow);
 
+/* PUT allow user to return book */
+router.put('/users/:userId/books', isLoggedIn, BooksController.return);
+
 /* GET user borrowed book */
 router.get('/users/:userId/books', isLoggedIn, BooksController.inventory);
-
-/* PUT allow user to return book */
-router.put('/users/:userId/books', isLoggedIn, BooksController.returnBook);
 
 /* POST add book */
 router.post('/books', isLoggedIn, BooksController.add);

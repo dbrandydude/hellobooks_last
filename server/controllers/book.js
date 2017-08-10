@@ -3,30 +3,45 @@ import db from '../models';
 const BooksController = {
     /* Add Book */
     add: (req, res) => {
-        db.Book
-            .create({
+        // Validate input
+        req.checkBody('isbn', 'ISBN required').notEmpty().isInt();
+        req.checkBody('title', 'Title required').notEmpty();
+        req.checkBody('author', 'Author required').notEmpty();
+        req.checkBody('published', 'Published date required').notEmpty();
+        req.checkBody('description', 'Description required').notEmpty();
+        req.checkBody('qty', 'QTY required').notEmpty().isInt();
+
+        // Validation result
+        req.getValidationResult().then((result) => {
+            if (!result.isEmpty()) {
+                res.status(400)
+                    .json({ status: 'Validation error', data: result.array() });
+            }
+
+            const newBook = {
                 isbn: req.body.isbn,
                 title: req.body.title,
                 author: req.body.author,
                 published: req.body.published,
                 description: req.body.description,
                 qty: req.body.qty
-            })
-            .then((book) => { res.status(201).send(book); })
-            .catch((err) => { res.status(400).send(err); });
+            };
+
+            db.Book
+                .create(newBook)
+                .then((book) => {
+                    res.status(201).json({
+                        status: 'success',
+                        data: book
+                    });
+                })
+                .catch((err) => { res.status(400).send(err); });
+        });
     },
 
     /* Update book */
     update: (req, res) => {
         const bookId = req.params.bookId;
-        const updateBook = {
-            isbn: req.body.isbn,
-            title: req.body.title,
-            author: req.body.author,
-            published: req.body.published,
-            description: req.body.description,
-            qty: req.body.qty
-        };
 
         db.Book
             .findById(bookId)
@@ -36,6 +51,15 @@ const BooksController = {
                         status: 'Not found'
                     });
                 }
+
+                const updateBook = {
+                    isbn: req.body.isbn || book.isbn,
+                    title: req.body.title || book.title,
+                    author: req.body.author || book.author,
+                    published: req.body.published || book.published,
+                    description: req.body.description || book.description,
+                    qty: req.body.qty || book.isbn
+                };
                 return book
                     .update(updateBook)
                     .then(() => {
@@ -48,7 +72,7 @@ const BooksController = {
     /* Retrieve all books */
     retrieveAll: (req, res) => {
         db.Book.all()
-            .then((users) => { res.send(users); })
+            .then((books) => { res.send(books); })
             .catch((err) => { res.send(err); });
     },
 
@@ -72,6 +96,7 @@ const BooksController = {
         db.Book
             .findById(bookId)
             .then((book) => {
+                // TODO: associate
                 const bookData = book.title;
                 db.Inventory
                     .create({
@@ -85,31 +110,11 @@ const BooksController = {
             .catch(err => res.status(400).send(err));
     },
 
-    /* Get books borrowed by user */
-    inventory: (req, res) => {
-        if (!req.user) return res.status(401).send('Unauthorized');
-        if (req.query.returned) {
-            db.Inventory
-                .findAll({
-                    where: {
-                        userId: req.params.userId,
-                        return: req.query.returned
-                    }
-                })
-                .then((books) => { res.send(books); })
-                .catch((err) => { res.send(err); });
-        }
-        return db.Inventory
-            .findAll({ where: { userId: req.params.userId } })
-            .then((books) => { res.send(books); })
-            .catch((err) => { res.send(err); });
-    },
-
     /* Return borrowed books */
-    returnBook: (req, res) => {
-        const inventoryId = parseInt(req.body.inventoryId, 10);
+    return: (req, res) => {
+        const bookId = parseInt(req.body.bookId, 10);
         db.Inventory
-            .findById(inventoryId)
+            .findOne({ where: { bookId } })
             .then((book) => {
                 if (!book) {
                     res.status(404).send({ status: 'Not found' });
@@ -121,8 +126,26 @@ const BooksController = {
                     })
                     .catch(err => res.status(400).send(err));
             });
-    }
+    },
 
+    /* Get books borrowed by user */
+    inventory: (req, res) => {
+        if (req.query.returned) {
+            return db.Inventory
+                .findAll({
+                    where: {
+                        userId: req.params.userId,
+                        return: req.query.returned
+                    }
+                })
+                .then((books) => { res.send(books); })
+                .catch((err) => { res.send(err); });
+        }
+        db.Inventory
+            .findAll({ where: { userId: req.params.userId } })
+            .then((books) => { res.send(books); })
+            .catch((err) => { res.send(err); });
+    }
 };
 
 export default BooksController;

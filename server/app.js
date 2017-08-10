@@ -1,6 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import session from 'express-session';
+import expressValidator from 'express-validator';
 import passport from 'passport';
 import dotenv from 'dotenv';
 
@@ -17,6 +19,8 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
+app.use(cookieParser());
 app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,

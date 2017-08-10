@@ -13,8 +13,8 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 allowNull: false
             },
-            book: {
-                type: Sequelize.TEXT,
+            bookId: {
+                type: Sequelize.INTEGER,
                 allowNull: false
             },
             return: {

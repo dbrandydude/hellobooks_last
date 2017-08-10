@@ -6,8 +6,8 @@ const model = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        book: {
-            type: DataTypes.TEXT,
+        bookId: {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         return: {
