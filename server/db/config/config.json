@@ -1,12 +1,12 @@
 {
-  "development": {
-    "username": "root",
-    "password": null,
-    "database": "hellobooks",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "logging": false
-  },
+  // "development": {
+  //   "username": "root",
+  //   "password": null,
+  //   "database": "hellobooks",
+  //   "host": "127.0.0.1",
+  //   "dialect": "postgres",
+  //   "logging": false
+  // },
   "test": {
     "username": "root",
     "password": null,
@@ -15,7 +15,7 @@
     "dialect": "postgres",
     "logging": false
   },
-  "production": {
+  "development": {
     "username": "xzcfegfu",
     "password": "OL7qD5_ynVCjxkkGyE9Lm8YERVFVUhyR",
     "database": "xzcfegfu",
