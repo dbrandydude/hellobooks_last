@@ -1,6 +1,5 @@
 import bcrypt from 'bcryptjs';
 import passport from 'passport';
-import _s from 'serialijse';
 
 import db from '../models';
 
@@ -36,67 +35,11 @@ const UsersController = {
         })(req, res, next);
     },
 
-    /* Borrow book */
-    borrow: (req, res) => {
-        if (!req.user) return res.status(401).send('Unauthorized');
-        const userId = parseInt(req.params.userId, 10);
-        const bookId = req.body.bookId;
-
-        db.Book
-            .findById(bookId)
-            .then((book) => {
-                const bookData = _s.serialize(JSON.stringify(book));
-                db.Inventory
-                    .create({
-                        userId,
-                        book: bookData
-                    })
-                    .then((inventory) => {
-                        res.status(200).send(inventory);
-                    });
-            })
-            .catch(err => res.status(400).send(err));
-    },
-
-    /* Get books borrowed by user */
-    inventory: (req, res) => {
-        if (!req.user) return res.status(401).send('Unauthorized');
-        if (req.query.returned) {
-            db.Inventory
-                .findAll({
-                    where: {
-                        userId: req.params.userId,
-                        return: req.query.returned
-                    }
-                })
-                .then((books) => { res.send(books); })
-                .catch((err) => { res.send(err); });
-        }
-        return db.Inventory
-            .findAll({ where: { userId: req.params.userId } })
-            .then((books) => { res.send(books); })
-            .catch((err) => { res.send(err); });
-    },
-
-    /* Return borrowed books */
-    returnBook: (req, res) => {
-        if (!req.user) return res.status(401).send('Unauthorized');
-        const inventoryId = parseInt(req.body.inventoryId, 10);
-        db.Inventory
-            .findById(inventoryId)
-            .then((book) => {
-                if (!book) {
-                    res.status(404).send({ status: 'Not found' });
-                }
-                book
-                    .update({ return: true })
-                    .then(() => {
-                        res.status(200).send({ status: 'success' });
-                    })
-                    .catch(err => res.status(400).send(err));
-            });
+    /* logout user */
+    logout: (req, res) => {
+        req.logout();
+        res.status(200).json({ status: 'Logged out' });
     }
-
 };
 
 export default UsersController;
