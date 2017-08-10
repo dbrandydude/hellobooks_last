@@ -1,8 +1,5 @@
 import express from 'express';
-// import path from 'path';
-// import favicon from 'serve-favicon';
 import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import expressValidator from 'express-validator';
 import passport from 'passport';
@@ -22,7 +19,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
-app.use(cookieParser());
 app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,
@@ -53,8 +49,9 @@ app.use((err, req, res) => {
     res.status(err.status || 500);
 });
 
-app.listen(3000, () => {
-    console.log('App listening on port 3000');
+const port = process.env.PORT || '3000';
+app.listen(port, () => {
+    console.log(`App listening on port ${port}`);
 });
 
 export default app;

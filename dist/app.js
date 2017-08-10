@@ -12,10 +12,6 @@ var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
-var _cookieParser = require('cookie-parser');
-
-var _cookieParser2 = _interopRequireDefault(_cookieParser);
-
 var _expressSession = require('express-session');
 
 var _expressSession2 = _interopRequireDefault(_expressSession);
@@ -49,16 +45,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /* Routes */
 _dotenv2.default.config();
-// import path from 'path';
-// import favicon from 'serve-favicon';
-
 
 var app = (0, _express2.default)();
 
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
 app.use((0, _expressValidator2.default)());
-app.use((0, _cookieParser2.default)());
 app.use((0, _expressSession2.default)({
     secret: process.env.SECRET_KEY,
     resave: false,
@@ -89,8 +81,9 @@ app.use(function (err, req, res) {
     res.status(err.status || 500);
 });
 
-app.listen(3000, function () {
-    console.log('App listening on port 3000');
+var port = process.env.PORT || '3000';
+app.listen(port, function () {
+    console.log('App listening on port ' + port);
 });
 
 exports.default = app;

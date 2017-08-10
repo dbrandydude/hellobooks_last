@@ -14,7 +14,7 @@ var router = _express2.default.Router();
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    res.send('We are live on hellobooks');
+    res.send('YOYO! We are live on dbBooks');
 });
 
 exports.default = router;
