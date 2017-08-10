@@ -3,7 +3,5 @@ node_js:
   - "4.0.0"
 services:
   - postgresql
-before_script:
-  - npm install
 script:
   - npm test
